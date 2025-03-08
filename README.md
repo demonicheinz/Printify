@@ -12,7 +12,7 @@
 ![GitHub License](https://img.shields.io/github/license/demonicheinz/Printify?logo=creative-commons&logoColor=white&label=License)
 ![GitHub last commit](https://img.shields.io/github/last-commit/demonicheinz/Printify?logo=github&label=Last%20Commit)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/demonicheinz/Printify/CodeQL.yml?branch=main&logo=github&label=Build)
-[![Live Preview](https://img.shields.io/badge/Live%20Preview-🔗-blue?logo=vercel&logoColor=white)](https://printify.heinz.id/)
+[![Live Preview](https://img.shields.io/badge/Live%20Preview-🔗-blue?logo=vercel&logoColor=white)](https://printify-omega.vercel.app//)
 
 </div>
 

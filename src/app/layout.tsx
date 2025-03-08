@@ -1,47 +1,50 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
-const roboto_font = localFont({
+const inter_font = localFont({
   src: [
     {
-      path: "../../public/fonts/Roboto-Regular.woff2",
+      path: "../fonts/Inter-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Roboto-Medium.woff2",
+      path: "../fonts/Inter-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Roboto-Bold.woff2",
+      path: "../fonts/Inter-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Inter-Bold.woff2",
       weight: "700",
       style: "normal",
     },
   ],
   display: "swap",
+  variable: "--font-sans",
 });
 
-const roboto_mono_font = localFont({
+const jetbrains_mono_font = localFont({
   src: [
     {
-      path: "../../public/fonts/RobotoMono-Regular.woff2",
+      path: "../fonts/JetBrainsMono-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/RobotoMono-Medium.woff2",
+      path: "../fonts/JetBrainsMono-Medium.woff2",
       weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/RobotoMono-Bold.woff2",
-      weight: "700",
       style: "normal",
     },
   ],
   display: "swap",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -66,7 +69,7 @@ export default function RootLayout({
     <html
       lang="id"
       suppressHydrationWarning={true}
-      className={`${roboto_font.className} ${roboto_mono_font.className} antialiased`}
+      className={`${inter_font.variable} ${jetbrains_mono_font.variable} antialiased`}
     >
       <head>
         <meta
@@ -75,6 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body>{children}</body>
+      <Analytics />
     </html>
   );
 }
