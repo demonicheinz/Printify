@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="64" height="64"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Base Circle -->
+  <circle cx="32" cy="32" r="32" fill="#0369A1"></circle>
+  
+  <!-- Stylized Printer Body -->
+  <rect x="16" y="22" width="32" height="20" fill="#0EA5E9" rx="3"></rect>
+  <rect x="20" y="18" width="24" height="4" fill="#0EA5E9" rx="1"></rect>
+  <rect x="20" y="42" width="24" height="3" fill="white" rx="1"></rect>
+  
+  <!-- Printer "Eyes" -->
+  <circle cx="26" cy="32" r="6" fill="white"></circle>
+  <circle cx="38" cy="32" r="6" fill="white"></circle>
+  <circle cx="26" cy="32" r="3" fill="#0369A1"></circle>
+  <circle cx="38" cy="32" r="3" fill="#0369A1"></circle>
+  
+  <!-- Tiny Square Grid (Optional Detail) -->
+  <rect x="46" y="12" width="10" height="10" fill="white" stroke="#0EA5E9" stroke-width="0.5" rx="1"></rect>
+  <line x1="46" y1="17" x2="56" y2="17" stroke="#0EA5E9" stroke-width="0.5"></line>
+  <line x1="51" y1="12" x2="51" y2="22" stroke="#0EA5E9" stroke-width="0.5"></line>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
