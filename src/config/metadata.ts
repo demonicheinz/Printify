@@ -14,6 +14,12 @@ export const siteConfig = {
 
 // Konfigurasi metadata untuk halaman info
 export const infoPages = {
+  info: {
+    title: "Informasi",
+    description:
+      "Printify adalah platform cetak digital yang dirancang khusus untuk memenuhi kebutuhan cetak foto dan dokumen bagi siswa, santri, dan institusi pendidikan.",
+    path: "/info",
+  },
   about: {
     title: "Tentang Kami",
     description:
@@ -37,5 +43,30 @@ export const infoPages = {
     description:
       "Hubungi tim Printify untuk pertanyaan, dukungan, atau kerjasama terkait layanan cetak foto dan dokumen.",
     path: "/contact",
+  },
+};
+
+// Konfigurasi metadata untuk halaman auth
+export const authPages = {
+  auth: {
+    title: "Autentikasi",
+    description: "Masuk atau daftar untuk menggunakan layanan Printify",
+    path: "/auth",
+  },
+  signIn: {
+    title: "Masuk",
+    description: "Masuk ke akun Printify Anda untuk mengakses layanan cetak foto dan dokumen",
+    path: "/sign-in",
+  },
+  signUp: {
+    title: "Daftar",
+    description: "Buat akun Printify baru untuk mengakses layanan cetak foto dan dokumen",
+    path: "/sign-up",
+  },
+  forgotPassword: {
+    title: "Lupa Password",
+    description:
+      "Reset password akun Printify Anda untuk mengakses kembali layanan cetak foto dan dokumen",
+    path: "/forgot-password",
   },
 };

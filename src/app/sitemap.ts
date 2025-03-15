@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { baseURL, infoPages } from "@/config/metadata";
+import { baseURL, infoPages, authPages } from "@/config/metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = `https://${baseURL}`;
@@ -15,12 +15,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Halaman info
-  const infoPageUrls = Object.values(infoPages).map((page) => ({
-    url: `${baseUrl}${page.path}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const infoPageUrls = Object.values(infoPages)
+    .filter((page) => page.path !== "/info")
+    .map((page) => ({
+      url: `${baseUrl}${page.path}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }));
 
-  return [...mainPages, ...infoPageUrls];
+  // Halaman auth
+  const authPageUrls = Object.values(authPages)
+    .filter((page) => page.path !== "/auth")
+    .map((page) => ({
+      url: `${baseUrl}${page.path}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: page.path.includes("forgot-password") ? 0.6 : 0.7,
+    }));
+
+  return [...mainPages, ...infoPageUrls, ...authPageUrls];
 }

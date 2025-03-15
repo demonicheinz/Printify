@@ -4,23 +4,18 @@ import { memo } from "react";
 import type React from "react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import Breadcrumb from "@/components/layout/breadcrumb";
-import ScrollToTop from "@/components/ui/scroll-to-top";
 import { motion } from "framer-motion";
 import { pageTransition } from "@/lib/animations";
 
-interface InfoLayoutClientProps {
+interface AuthLayoutClientProps {
   children: React.ReactNode;
 }
 
-const InfoLayoutClient = memo(function InfoLayoutClient({ children }: InfoLayoutClientProps) {
+const AuthLayoutClient = memo(function AuthLayoutClient({ children }: AuthLayoutClientProps) {
   return (
     <div className="flex flex-col min-h-svh">
       <Navbar />
       <main className="flex-1 pt-16">
-        <div className="container mx-auto px-4 py-4">
-          <Breadcrumb className="mb-4" />
-        </div>
         <motion.div
           initial={pageTransition.initial}
           animate={pageTransition.animate}
@@ -30,11 +25,10 @@ const InfoLayoutClient = memo(function InfoLayoutClient({ children }: InfoLayout
         </motion.div>
       </main>
       <Footer />
-      <ScrollToTop />
     </div>
   );
 });
 
-InfoLayoutClient.displayName = "InfoLayoutClient";
+AuthLayoutClient.displayName = "AuthLayoutClient";
 
-export default InfoLayoutClient;
+export default AuthLayoutClient;

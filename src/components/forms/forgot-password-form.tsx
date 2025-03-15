@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
+import { LoadingSpinner } from "@/components/common/loading-spinner";
 
 const forgotPasswordSchema = z.object({
   email: z.string().email({
@@ -91,7 +92,8 @@ export function ForgotPasswordForm({ className, ...props }: React.ComponentProps
                           <FormLabel>Email</FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="john.doe@example.com"
+                              placeholder="email@anda.com"
+                              className="text-sm"
                               {...field}
                             />
                           </FormControl>
@@ -101,10 +103,10 @@ export function ForgotPasswordForm({ className, ...props }: React.ComponentProps
                     />
                     <Button
                       type="submit"
-                      className="w-full"
+                      className="w-full cursor-pointer"
                       disabled={isLoading}
                     >
-                      {isLoading ? "Memproses..." : "Kirim Tautan Reset"}
+                      {isLoading ? <LoadingSpinner /> : "Kirim Tautan Reset"}
                     </Button>
                     <div className="text-center text-sm">
                       Ingat password Anda?{" "}

@@ -17,6 +17,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Icon } from "@/components/ui/icon";
+import { PasswordInput } from "@/components/common/password-input";
+import { LoadingSpinner } from "@/components/common/loading-spinner";
 
 const signInSchema = z.object({
   email: z.string().email({
@@ -66,7 +69,7 @@ export function SignInForm({ className, ...props }: React.ComponentProps<"div">)
                 <div className="flex flex-col gap-4">
                   <Button
                     variant="outline"
-                    className="w-full"
+                    className="w-full cursor-pointer"
                     type="button"
                   >
                     <svg
@@ -84,7 +87,7 @@ export function SignInForm({ className, ...props }: React.ComponentProps<"div">)
                   </Button>
                   <Button
                     variant="outline"
-                    className="w-full"
+                    className="w-full cursor-pointer"
                     type="button"
                   >
                     <svg
@@ -115,7 +118,8 @@ export function SignInForm({ className, ...props }: React.ComponentProps<"div">)
                         <FormLabel>Email</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="john.doe@example.com"
+                            placeholder="email@anda.com"
+                            className="text-sm"
                             {...field}
                           />
                         </FormControl>
@@ -138,8 +142,10 @@ export function SignInForm({ className, ...props }: React.ComponentProps<"div">)
                           </a>
                         </div>
                         <FormControl>
-                          <Input
-                            type="password"
+                          <PasswordInput
+                            placeholder="Masukkan password"
+                            srLabel="Toggle password visibility"
+                            className="text-sm"
                             {...field}
                           />
                         </FormControl>
@@ -150,15 +156,11 @@ export function SignInForm({ className, ...props }: React.ComponentProps<"div">)
                 </div>
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full cursor-pointer"
                   disabled={isLoading}
                 >
-                  {isLoading ? "Memproses..." : "Masuk"}
+                  {isLoading ? <LoadingSpinner /> : "Masuk"}
                 </Button>
-                <p className="text-center text-xs text-muted-foreground">
-                  Dengan mengklik masuk, Anda menyetujui Syarat dan Ketentuan serta Kebijakan
-                  Privasi kami.
-                </p>
                 <div className="text-center text-sm">
                   Belum memiliki akun?{" "}
                   <a

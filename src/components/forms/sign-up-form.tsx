@@ -18,6 +18,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Icon } from "@/components/ui/icon";
+import { PasswordInput } from "@/components/common/password-input";
+import { LoadingSpinner } from "@/components/common/loading-spinner";
 
 const signUpSchema = z
   .object({
@@ -82,7 +85,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                 <div className="flex flex-col gap-4">
                   <Button
                     variant="outline"
-                    className="w-full"
+                    className="w-full cursor-pointer"
                     type="button"
                   >
                     <svg
@@ -100,7 +103,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                   </Button>
                   <Button
                     variant="outline"
-                    className="w-full"
+                    className="w-full cursor-pointer"
                     type="button"
                   >
                     <svg
@@ -131,7 +134,8 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                         <FormLabel>Nama Lengkap</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="John Doe"
+                            placeholder="Nama Anda"
+                            className="text-sm"
                             {...field}
                           />
                         </FormControl>
@@ -147,7 +151,8 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                         <FormLabel>Email</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="john.doe@example.com"
+                            placeholder="email@anda.com"
+                            className="text-sm"
                             {...field}
                           />
                         </FormControl>
@@ -162,8 +167,10 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                       <FormItem>
                         <FormLabel>Password</FormLabel>
                         <FormControl>
-                          <Input
-                            type="password"
+                          <PasswordInput
+                            placeholder="Masukkan password"
+                            srLabel="Toggle password visibility"
+                            className="text-sm"
                             {...field}
                           />
                         </FormControl>
@@ -178,8 +185,10 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                       <FormItem>
                         <FormLabel>Konfirmasi Password</FormLabel>
                         <FormControl>
-                          <Input
-                            type="password"
+                          <PasswordInput
+                            placeholder="Konfirmasi password"
+                            srLabel="Toggle confirm password visibility"
+                            className="text-sm"
                             {...field}
                           />
                         </FormControl>
@@ -191,15 +200,16 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                     control={form.control}
                     name="terms"
                     render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                      <FormItem className="flex items-center space-x-2">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
+                            className="cursor-pointer"
                           />
                         </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel className="text-sm font-medium leading-none">
+                        <div className="leading-none">
+                          <FormLabel className="text-xs md:text-xs lg:text-sm font-medium">
                             Saya setuju dengan{" "}
                             <a
                               href="/terms-of-service"
@@ -216,14 +226,27 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                 </div>
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full cursor-pointer"
                   disabled={isLoading}
                 >
-                  {isLoading ? "Memproses..." : "Daftar"}
+                  {isLoading ? <LoadingSpinner /> : "Daftar"}
                 </Button>
                 <p className="text-center text-xs text-muted-foreground">
-                  Dengan mengklik daftar, Anda menyetujui Syarat dan Ketentuan serta Kebijakan
-                  Privasi kami.
+                  Dengan mendaftar, Anda menyetujui{" "}
+                  <a
+                    href="/terms-of-service"
+                    className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    Syarat dan Ketentuan
+                  </a>{" "}
+                  serta{" "}
+                  <a
+                    href="/privacy-policy"
+                    className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    Kebijakan Privasi
+                  </a>{" "}
+                  kami.
                 </p>
                 <div className="text-center text-sm">
                   Sudah memiliki akun?{" "}
