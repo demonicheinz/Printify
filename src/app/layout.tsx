@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "next-themes";
+import { ClientOptimizers } from "@/components/client-optimizers";
 
 const inter_font = localFont({
   src: [
@@ -49,7 +51,7 @@ const jetbrains_mono_font = localFont({
 
 export const metadata: Metadata = {
   title: "Printify",
-  description: "Printify",
+  description: "Printify - Solusi Cetak Foto dan Dokumen",
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
@@ -76,9 +78,52 @@ export default function RootLayout({
           name="apple-mobile-web-app-title"
           content="Printify"
         />
+        {/* Font Awesome untuk Leaflet Awesome Markers */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+        {/* Preconnect untuk domain eksternal */}
+        <link
+          rel="preconnect"
+          href="https://cdnjs.cloudflare.com"
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://cdnjs.cloudflare.com"
+        />
+
+        {/* Meta tags untuk performa */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta
+          name="theme-color"
+          content="#ffffff"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#1e1e2e"
+          media="(prefers-color-scheme: dark)"
+        />
       </head>
-      <body>{children}</body>
-      <Analytics />
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ClientOptimizers />
+          {children}
+        </ThemeProvider>
+        <Analytics />
+      </body>
     </html>
   );
 }

@@ -1,6 +1,15 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
+  const [year, setYear] = useState("2024");
+
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString());
+  }, []);
+
   return (
     <div className="flex min-h-svh flex-col">
       <header className="flex h-14 items-center px-4 lg:px-6 border-b">
@@ -47,7 +56,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between">
             <div className="mt-4 md:mt-0">
               <p className="text-sm text-muted-foreground text-center md:text-left">
-                © {new Date().getFullYear()} Printify. All rights reserved.
+                © {year} Printify. All rights reserved.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 justify-center md:justify-end">

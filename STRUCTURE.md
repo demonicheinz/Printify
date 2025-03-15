@@ -43,10 +43,16 @@ printify/
 │   │   │   │   │   └── page.tsx
 │   │   │   │   └── layout.tsx
 │   │   │   └── layout.tsx
-│   │   ├── pricing/
-│   │   │   └── page.tsx
-│   │   ├── about/
-│   │   │   └── page.tsx
+│   │   ├── (info)/
+│   │   │   ├── about/
+│   │   │   │   └── page.tsx
+│   │   │   ├── contact/
+│   │   │   │   └── page.tsx
+│   │   │   ├── faq/
+│   │   │   │   └── page.tsx
+│   │   │   ├── pricing/
+│   │   │   │   └── page.tsx
+│   │   │   └── layout.tsx
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
 │   │   └── globals.css
